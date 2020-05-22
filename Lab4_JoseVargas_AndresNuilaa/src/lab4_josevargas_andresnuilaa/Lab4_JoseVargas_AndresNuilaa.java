@@ -4,23 +4,30 @@
  * and open the template in the editor.
  */
 package lab4_josevargas_andresnuilaa;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+
 /**
  *
  * @author josevargas
  */
 public class Lab4_JoseVargas_AndresNuilaa {
-static Scanner sc = new Scanner(System.in);
-static boolean repetido = false;
-static boolean inge = false;
+
+    static Scanner sc = new Scanner(System.in);
+    static boolean repetido = false;
+    static boolean inge = false;
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws ParseException {
+        ArrayList<Primate> primates = new ArrayList();
+        ArrayList<Aero_Espacial> aereo_espacial = new ArrayList();
+        ArrayList<Aereo_Normal> aereo_normal = new ArrayList();
         ArrayList<Ingeniero> ingenieros = new ArrayList();
         boolean valid = true;
         while (valid) {
@@ -34,7 +41,7 @@ static boolean inge = false;
                     + "7]Salir\n"
                     + "Ingrese una opcion: ");
             int opcion = sc.nextInt();
-            switch(opcion){
+            switch (opcion) {
                 case 1:
                     System.out.println("Ingrese un nombre: ");
                     String nombre = sc.next();
@@ -50,7 +57,7 @@ static boolean inge = false;
                     String correo = sc.next();
                     String user = "";
                     boolean flag = true;
-                    while(flag){
+                    while (flag) {
                         System.out.println("Ingrese su nombre de usuario: ");
                         user = sc.next();
                         for (Ingeniero x : ingenieros) {
@@ -60,9 +67,9 @@ static boolean inge = false;
                                 break;
                             }
                         }
-                        if(repetido){
-                            
-                        }else{
+                        if (repetido) {
+
+                        } else {
                             flag = false;
                         }
                     }
@@ -73,8 +80,8 @@ static boolean inge = false;
                     String contraseña = sc.next();
                     System.out.println("Ingrese su fecha de nacimiento(dd/MM/yyyy): ");
                     String fecha = sc.next();
-                    Date date=new SimpleDateFormat("dd/MM/yyyy").parse(fecha); 
-                    ingenieros.add(new Ingeniero(correo,user,contraseña,date,nombre,grupo_sangre,sexo,altura,peso));
+                    Date date = new SimpleDateFormat("dd/MM/yyyy").parse(fecha);
+                    ingenieros.add(new Ingeniero(correo, user, contraseña, date, nombre, grupo_sangre, sexo, altura, peso));
                     System.out.println("El ingeniero fue registrado con exito!");
                     System.out.println();
                     break;
@@ -93,54 +100,174 @@ static boolean inge = false;
                     if (inge) {
 
                     } else {
-                         System.out.println("El usuario o contraseña es incorrecto");
+                        System.out.println("El usuario o contraseña es incorrecto");
                     }
                     System.out.println();
                     break;
                 case 3:
-                    if(inge == false){
+                    if (inge == false) {
                         System.out.println("Se debe ingresar sesion como Ingeniero para tener acceso");
-                    }else{
+                    } else {
                         System.out.println("1]Agregar un Primate\n"
                                 + "2]Modificar un Primate\n"
                                 + "3]Eliminar un Primate\n"
                                 + "4]Listar Primates\n"
                                 + "Ingrese una opcion:");
                         int opcion2 = sc.nextInt();
-                        switch(opcion2){
+                        switch (opcion2) {
                             case 1:
-                                System.out.println("1]");
+                                System.out.println("Ingrese un nombre: ");
+                                String nombre2 = sc.next();
+                                System.out.println("Ingrese un grupo sanguineo: ");
+                                String grupo_sangre2 = sc.next();
+                                System.out.println("Ingrese su sexo(M/F): ");
+                                char sexo2 = sc.next().charAt(0);
+                                System.out.println("Ingrese su altura: ");
+                                double altura2 = sc.nextInt();
+                                System.out.println("Ingrese su peso(lb): ");
+                                double peso2 = sc.nextInt();
+                                System.out.println("Ingrese la cantidad de comida(1-100): ");
+                                int cant_comida = sc.nextInt();
+                                System.out.println("Ingrese cuanta comida consume por kilometro: ");
+                                int comidaPorKM = sc.nextInt();
+                                System.out.println("Ingrese el planeta asignado: ");
+                                String planeta = sc.next();
+                                System.out.println("Ingrese el lugar de nacimiento: ");
+                                String nacimiento = sc.next();
+                                System.out.println("1]Mono\n"
+                                        + "2]Gorila\n"
+                                        + "Ingrese el tipo de primate que desea: ");
+                                String color = "";
+                                int iq =0;
+                                int tipo_prim = sc.nextInt();
+                                if (tipo_prim == 1) {
+                                    System.out.println("Ingrese el color del mono: ");
+                                    color = sc.next();
+                                } else {
+                                    System.out.println("Ingrese el iq del gorila(130-139): ");
+                                    iq = sc.nextInt();
+
+                                }
+                                System.out.println("1]Aereo Normal\n"
+                                        + "2]Aereo Espacial\n"
+                                        + "Ingrese el metodo de transporte que desea utilizar: ");
+                                int opc = sc.nextInt();
+                                switch (opc) {
+                                    case 1:
+                                        if (aereo_normal.size() > 0) {
+                                            for (Aereo_Normal an : aereo_normal) {
+                                                System.out.println("[" + aereo_normal.indexOf(an) + "] " + an);
+                                            }
+                                            System.out.println("Ingrese la posicion donde quiere agregar el primate: ");
+                                            int posi = sc.nextInt();
+                                            if(tipo_prim==1){
+                                                aereo_normal.get(posi).getPrimates().add(new Mono(color, aereo_normal.get(posi), cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
+                                                primates.add(new Mono(color, aereo_normal.get(posi), cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
+                                            }else{
+                                                aereo_normal.get(posi).getPrimates().add(new Gorila(iq, aereo_normal.get(posi), cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
+                                                primates.add(new Gorila(iq, aereo_normal.get(posi), cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
+                                            }
+                                            
+                                        } else {
+                                            System.out.println("No hay ningun metodo de transporte disponible por los momentos");
+                                            if(tipo_prim==1){
+                                                primates.add(new Mono(color, cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
+                                            }else{
+                                                primates.add(new Gorila(iq, cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
+                                            }
+                                        }
+                                        break;
+                                    case 2:
+                                        if (aereo_espacial.size() > 0) {
+                                            for (Aero_Espacial ae : aereo_espacial) {
+                                                System.out.println("[" + aereo_espacial.indexOf(ae) + "] " + ae);
+                                            }
+                                            System.out.println("Ingrese la posicion donde quiere agregar el primate: ");
+                                            int posi = sc.nextInt();
+                                            if(tipo_prim==1){
+                                                aereo_espacial.get(posi).getPrimates().add(new Mono(color, aereo_normal.get(posi), cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
+                                                primates.add(new Mono(color, aereo_espacial.get(posi), cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
+                                            }else{
+                                                aereo_espacial.get(posi).getPrimates().add(new Gorila(iq, aereo_normal.get(posi), cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
+                                                primates.add(new Gorila(iq, aereo_espacial.get(posi), cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
+                                            }
+
+                                        } else {
+                                            System.out.println("No hay ningun metodo de transporte disponible entonces no se podra agregar por los momentos");
+                                            if(tipo_prim==1){
+                                                primates.add(new Mono(color, cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
+                                            }else{
+                                                primates.add(new Gorila(iq, cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
+                                            }
+                                        }
+
+                                        break;
+                                }
+                                System.out.println("El primate fue creado con exito!");
                                 break;
                             case 2:
                                 break;
                             case 3:
+                                System.out.println("Lista de Primates: ");
+                                for (Primate p : primates) {
+                                    System.out.println("[" + primates.indexOf(p) + "] " + p);
+                                }
+                                System.out.println("Ingrese la posicion del primate que desea eliminar: ");
+                                int pos = sc.nextInt();
+                                primates.remove(pos);
+                                System.out.println("El primate fue eliminado con exito");
                                 break;
                             case 4:
+                                System.out.println("1]Listar Monos\n"
+                                        + "2]Listar Gorilas\n"
+                                        + "Listar Todos los Primates\n"
+                                        + "Ingrese una opcion: ");
+                                int opt = sc.nextInt();
+                                if(opt == 1){
+                                    System.out.println("Lista de Monos: ");
+                                    for (Primate p : primates) {
+                                        if(p instanceof Mono){
+                                            System.out.println("[" + primates.indexOf(p) + "] " + p);
+                                        }
+                                    }
+                                }else if(opt == 2){
+                                    System.out.println("Lista de Gorilas: ");
+                                    for (Primate p : primates) {
+                                        if(p instanceof Gorila){
+                                            System.out.println("[" + primates.indexOf(p) + "] " + p);
+                                        }
+                                    }
+                                }else{
+                                    System.out.println("Lista de todos los Primates: ");
+                                    for (Primate p : primates) {
+                                         System.out.println("[" + primates.indexOf(p) + "] " + p);
+                                    }
+                                }
                                 break;
                         }
                     }
                     System.out.println();
                     break;
                 case 4:
-                    if(inge == false){
+                    if (inge == false) {
                         System.out.println("Se debe ingresar sesion como Ingeniero para tener acceso");
-                    }else{
-                        
+                    } else {
+
                     }
                     System.out.println();
                     break;
                 case 5:
-                    if(inge == false){
+                    if (inge == false) {
                         System.out.println("Se debe ingresar sesion como Ingeniero para tener acceso");
-                    }else{
-                        
+                    } else {
+
                     }
                     System.out.println();
                     break;
                 case 6:
-                    if(inge == false){
+                    if (inge == false) {
                         System.out.println("No se ha iniciado sesion todavia");
-                    }else{
+                    } else {
                         System.out.println("Se cerro sesion con exito");
                         inge = false;
                     }
@@ -152,5 +279,5 @@ static boolean inge = false;
             }
         }
     }
-    
+
 }

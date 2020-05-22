@@ -4,27 +4,27 @@ import java.awt.Color;
 
 public class Mono extends Primate {
 
-    private Color pelo;
+    private String color;
 
     public Mono() {
     }
 
-    public Mono(Color pelo, int comida, int comidaPorKM, String planeta, String lugarNacimiento, String nombre, String tipoSangre, char sexo, double altura, double peso) {
+    public Mono(String color, int comida, int comidaPorKM, String planeta, String lugarNacimiento, String nombre, String tipoSangre, char sexo, double altura, double peso) {
         super(comida, comidaPorKM, planeta, lugarNacimiento, nombre, tipoSangre, sexo, altura, peso);
-        this.pelo = pelo;
+        this.color = color;
     }
 
-    public Mono(Color pelo, Medio_Transporte mt, int comida, int comidaPorKM, String planeta, String lugarNacimiento, String nombre, String tipoSangre, char sexo, double altura, double peso) {
+    public Mono(String color, Medio_Transporte mt, int comida, int comidaPorKM, String planeta, String lugarNacimiento, String nombre, String tipoSangre, char sexo, double altura, double peso) {
         super(mt, comida, comidaPorKM, planeta, lugarNacimiento, nombre, tipoSangre, sexo, altura, peso);
-        this.pelo = pelo;
+        this.color = color;
     }
 
-    public Color getPelo() {
-        return pelo;
+    public String getColor() {
+        return color;
     }
 
-    public void setPelo(Color pelo) {
-        this.pelo = pelo;
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public String getNombre() {
@@ -69,7 +69,7 @@ public class Mono extends Primate {
 
     @Override
     public String toString() {
-        return "Mono\n" + super.toString() + "pelo=" + pelo;
+        return "Mono\n" + super.toString() + "Color=" + color;
     }
 
 }
