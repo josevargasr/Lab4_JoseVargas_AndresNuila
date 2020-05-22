@@ -138,7 +138,7 @@ public class Lab4_JoseVargas_AndresNuilaa {
                                         + "2]Gorila\n"
                                         + "Ingrese el tipo de primate que desea: ");
                                 String color = "";
-                                int iq =0;
+                                int iq = 0;
                                 int tipo_prim = sc.nextInt();
                                 if (tipo_prim == 1) {
                                     System.out.println("Ingrese el color del mono: ");
@@ -160,19 +160,19 @@ public class Lab4_JoseVargas_AndresNuilaa {
                                             }
                                             System.out.println("Ingrese la posicion donde quiere agregar el primate: ");
                                             int posi = sc.nextInt();
-                                            if(tipo_prim==1){
+                                            if (tipo_prim == 1) {
                                                 aereo_normal.get(posi).getPrimates().add(new Mono(color, aereo_normal.get(posi), cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
                                                 primates.add(new Mono(color, aereo_normal.get(posi), cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
-                                            }else{
+                                            } else {
                                                 aereo_normal.get(posi).getPrimates().add(new Gorila(iq, aereo_normal.get(posi), cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
                                                 primates.add(new Gorila(iq, aereo_normal.get(posi), cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
                                             }
-                                            
+
                                         } else {
                                             System.out.println("No hay ningun metodo de transporte disponible por los momentos");
-                                            if(tipo_prim==1){
+                                            if (tipo_prim == 1) {
                                                 primates.add(new Mono(color, cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
-                                            }else{
+                                            } else {
                                                 primates.add(new Gorila(iq, cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
                                             }
                                         }
@@ -184,19 +184,19 @@ public class Lab4_JoseVargas_AndresNuilaa {
                                             }
                                             System.out.println("Ingrese la posicion donde quiere agregar el primate: ");
                                             int posi = sc.nextInt();
-                                            if(tipo_prim==1){
+                                            if (tipo_prim == 1) {
                                                 aereo_espacial.get(posi).getPrimates().add(new Mono(color, aereo_normal.get(posi), cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
                                                 primates.add(new Mono(color, aereo_espacial.get(posi), cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
-                                            }else{
+                                            } else {
                                                 aereo_espacial.get(posi).getPrimates().add(new Gorila(iq, aereo_normal.get(posi), cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
                                                 primates.add(new Gorila(iq, aereo_espacial.get(posi), cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
                                             }
 
                                         } else {
                                             System.out.println("No hay ningun metodo de transporte disponible entonces no se podra agregar por los momentos");
-                                            if(tipo_prim==1){
+                                            if (tipo_prim == 1) {
                                                 primates.add(new Mono(color, cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
-                                            }else{
+                                            } else {
                                                 primates.add(new Gorila(iq, cant_comida, comidaPorKM, planeta, nacimiento, nombre2, grupo_sangre2, sexo2, altura2, peso2));
                                             }
                                         }
@@ -206,6 +206,109 @@ public class Lab4_JoseVargas_AndresNuilaa {
                                 System.out.println("El primate fue creado con exito!");
                                 break;
                             case 2:
+                                System.out.println("Ingrese el indice del primate a modificar");
+                                int primate = sc.nextInt();
+                                System.out.println("1. Cambiar nombre");
+                                System.out.println("1. Cambiar tipo de sangre");
+                                System.out.println("1. Cambiar sexo");
+                                System.out.println("1. Cambiar altura");
+                                System.out.println("1. Cambiar peso");
+                                System.out.println("1. Cambiar medio de transporte");
+                                System.out.println("1. Cambiar cantidad de comida");
+                                System.out.println("1. Cambiar comida por kilometro");
+                                System.out.println("1. Cambiar planeta asigando");
+                                System.out.println("1. Cambiar lugar de nacimiento");
+                                System.out.println("1. Cambiar color de pelo");
+                                System.out.println("1. Cambiar IQ ");
+                                System.out.println("Ingrese la opcion e ejecutar");
+                                int mod1 = sc.nextInt();
+                                switch (mod1) {
+                                    case 1:
+                                        System.out.println("Ingrese el nuevo nombre: ");
+                                        String nombre3 = sc.nextLine();
+                                        sc = new Scanner(System.in);
+                                        sc.nextLine();
+                                        primates.get(primate).setNombre(nombre3);
+                                        break;
+                                    case 2:
+                                        System.out.println("Ingrese el nuevo tipo de sangre: ");
+                                        String sangre2 = sc.nextLine();
+                                        sc = new Scanner(System.in);
+                                        sc.nextLine();
+                                        primates.get(primate).setTipoSangre(sangre2);
+                                        break;
+                                    case 3:
+                                        System.out.println("Ingrese el nuevo genero del primate: ");
+                                        char sexo3 = sc.next().charAt(0);
+                                        sc = new Scanner(System.in);
+                                        primates.get(primate).setSexo(sexo3);
+                                        break;
+                                    case 4:
+                                        System.out.println("Ingrese la nueva altura del primate: ");
+                                        double altura3 = sc.nextDouble();
+                                        sc = new Scanner(System.in);
+                                        primates.get(primate).setAltura(altura3);
+                                        break;
+                                    case 5:
+                                        System.out.println("Ingrese la nueva altura del primate: ");
+                                        double peso3 = sc.nextDouble();
+                                        sc = new Scanner(System.in);
+                                        primates.get(primate).setPeso(peso3);
+                                        break;
+                                    case 6:
+                                        System.out.println("Ingrese el nuevo medio de trasnporte: ");
+                                        break;
+                                    case 7:
+                                        System.out.println("Ingrese la nueva cantidad de comida para el primate: ");
+                                        int cantidad2 = sc.nextInt();
+                                        sc = new Scanner(System.in);
+                                        primates.get(primate).setComida(cantidad2);
+                                        break;
+                                    case 8:
+                                        System.out.println("Ingrese la nueva cantidad de comida para el primate: ");
+                                        int porKm2 = sc.nextInt();
+                                        sc = new Scanner(System.in);
+                                        primates.get(primate).setComidaPorKM(porKm2);
+                                        break;
+                                    case 9:
+                                        System.out.println("Ingrese el nuevo planeta asignado: ");
+                                        String planeta2 = sc.nextLine();
+                                        sc.nextLine();
+                                        sc = new Scanner(System.in);
+
+                                        primates.get(primate).setNombre(planeta2);
+                                        break;
+                                    case 10:
+                                        System.out.println("Ingrese el nuevo lugar de nacimiento");
+                                        String nacimiento2 = sc.nextLine();
+                                        sc = new Scanner(System.in);
+                                        sc.nextLine();
+                                        primates.get(primate).setNombre(nacimiento2);
+                                        break;
+                                    case 11:
+                                        if (primates.get(primate) instanceof Mono) {
+                                            System.out.println("Ingrese el nuevo color de pelo");
+                                            String pelo = sc.next();
+                                            ((Mono)primates.get(primate)).setColor(pelo);
+                                            break;
+                                        } else {
+                                            System.out.println("A este primate no se le puede modificare el pelo");
+                                        }
+                                        break;
+                                    case 12:
+                                        if (primates.get(primate) instanceof Gorila) {
+                                            System.out.println("Ingrese el nuevo iq del Gorila");
+                                            int IQ = sc.nextInt();
+                                            sc = new Scanner(System.in);
+                                            ((Gorila)primates.get(primate)).setIQ(IQ);
+                                            break;
+                                        } else {
+                                            System.out.println("A este primate no se le puede modificare el IQ");
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
                                 break;
                             case 3:
                                 System.out.println("Lista de Primates: ");
@@ -223,24 +326,24 @@ public class Lab4_JoseVargas_AndresNuilaa {
                                         + "Listar Todos los Primates\n"
                                         + "Ingrese una opcion: ");
                                 int opt = sc.nextInt();
-                                if(opt == 1){
+                                if (opt == 1) {
                                     System.out.println("Lista de Monos: ");
                                     for (Primate p : primates) {
-                                        if(p instanceof Mono){
+                                        if (p instanceof Mono) {
                                             System.out.println("[" + primates.indexOf(p) + "] " + p);
                                         }
                                     }
-                                }else if(opt == 2){
+                                } else if (opt == 2) {
                                     System.out.println("Lista de Gorilas: ");
                                     for (Primate p : primates) {
-                                        if(p instanceof Gorila){
+                                        if (p instanceof Gorila) {
                                             System.out.println("[" + primates.indexOf(p) + "] " + p);
                                         }
                                     }
-                                }else{
+                                } else {
                                     System.out.println("Lista de todos los Primates: ");
                                     for (Primate p : primates) {
-                                         System.out.println("[" + primates.indexOf(p) + "] " + p);
+                                        System.out.println("[" + primates.indexOf(p) + "] " + p);
                                     }
                                 }
                                 break;
