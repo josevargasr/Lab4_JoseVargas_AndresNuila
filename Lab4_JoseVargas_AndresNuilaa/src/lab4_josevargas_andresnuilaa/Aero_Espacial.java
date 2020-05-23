@@ -79,4 +79,9 @@ public class Aero_Espacial extends Medio_Transporte {
         return "Aero Espacial\n" + super.toString() + "combustibe=" + combustibe + ", PlanetaSalida=" + PlanetaSalida + ", PlanetaLlegada=" + PlanetaLlegada + '}';
     }
 
+    public int viaje(int KmaViajar) {
+        int viaje = (KmaViajar / this.distancia) * 100;
+        int total = this.combustible - viaje;
+        return total;
+    }
 }

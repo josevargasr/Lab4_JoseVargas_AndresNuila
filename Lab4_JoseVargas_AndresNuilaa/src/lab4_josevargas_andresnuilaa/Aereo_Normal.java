@@ -79,5 +79,9 @@ public class Aereo_Normal extends Medio_Transporte {
         return "Aereo Normal\n" +super.toString() + "gasolina=" + gasolina + ", PaisSalida=" + PaisSalida + ", PaisLlegada=" + PaisLlegada;
     }
 
-    
+    public int viaje(int KmaViajar){
+        int viaje = (KmaViajar/this.distancia)*100;
+        int total = this.combustible-viaje;
+        return total;
+    }
 }
