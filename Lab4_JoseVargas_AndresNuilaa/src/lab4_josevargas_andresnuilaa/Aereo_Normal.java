@@ -76,12 +76,26 @@ public class Aereo_Normal extends Medio_Transporte {
 
     @Override
     public String toString() {
-        return "Aereo Normal\n" +super.toString() + "gasolina=" + gasolina + ", PaisSalida=" + PaisSalida + ", PaisLlegada=" + PaisLlegada;
+        return "Aereo Normal\n" + super.toString() + "gasolina=" + gasolina + ", PaisSalida=" + PaisSalida + ", PaisLlegada=" + PaisLlegada;
     }
 
-    public int viaje(int KmaViajar){
-        int viaje = (KmaViajar/this.distancia)*100;
-        int total = this.combustible-viaje;
+    @Override
+    public int viaje(int KmaViajar) {
+        try {
+
+            validar(KmaViajar);
+        } catch (miException e) {
+            System.out.println(e.getMessage());
+        }
+        int viaje = (KmaViajar / this.distancia) * 100;
+        int total = this.combustible - viaje;
         return total;
+    }
+
+    public void validar(int x) throws miException {
+        if (x > this.distancia) {
+            throw new miException("No se puede realizar el viaje");
+        }
+
     }
 }

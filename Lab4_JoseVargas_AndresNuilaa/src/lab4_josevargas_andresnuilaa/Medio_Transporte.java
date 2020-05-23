@@ -55,6 +55,6 @@ public abstract class Medio_Transporte {
         return "Medio Transporte\n" + "combustible=" + combustible + ", distancia maxima=" + distancia + ", altitud=" + altitud +", primates asigandos: " + primates;
     }
     
-    public abstract void viaje ();
+    public abstract int viaje (int km);
     
 }
