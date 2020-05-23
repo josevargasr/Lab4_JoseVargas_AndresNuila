@@ -2,7 +2,6 @@ package lab4_josevargas_andresnuilaa;
 
 public class Primate extends Ser_Vivo {
 
-    protected Medio_Transporte mt;
     protected int comida;
     protected int comidaPorKM;
     protected String planeta;
@@ -17,23 +16,6 @@ public class Primate extends Ser_Vivo {
         this.comidaPorKM = comidaPorKM;
         this.planeta = planeta;
         this.lugarNacimiento = lugarNacimiento;
-    }
-
-    public Primate(Medio_Transporte mt, int comida, int comidaPorKM, String planeta, String lugarNacimiento, String nombre, String tipoSangre, char sexo, double altura, double peso) {
-        super(nombre, tipoSangre, sexo, altura, peso);
-        this.mt = mt;
-        this.comida = comida;
-        this.comidaPorKM = comidaPorKM;
-        this.planeta = planeta;
-        this.lugarNacimiento = lugarNacimiento;
-    }
-
-    public Medio_Transporte getMt() {
-        return mt;
-    }
-
-    public void setMt(Medio_Transporte mt) {
-        this.mt = mt;
     }
 
     public int getComida() {
@@ -110,7 +92,7 @@ public class Primate extends Ser_Vivo {
 
     @Override
     public String toString() {
-        return "Primate\n" + super.toString() + "mt=" + mt + ", comida=" + comida + ", comidaPorKM=" + comidaPorKM + ", planeta=" + planeta + ", lugarNacimiento=" + lugarNacimiento + '}';
+        return "Primate\n" + super.toString() + ", comida=" + comida + ", comidaPorKM=" + comidaPorKM + ", planeta=" + planeta + ", lugarNacimiento=" + lugarNacimiento + '}';
     }
 
 }

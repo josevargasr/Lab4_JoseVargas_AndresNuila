@@ -14,11 +14,6 @@ public class Mono extends Primate {
         this.color = color;
     }
 
-    public Mono(String color, Medio_Transporte mt, int comida, int comidaPorKM, String planeta, String lugarNacimiento, String nombre, String tipoSangre, char sexo, double altura, double peso) {
-        super(mt, comida, comidaPorKM, planeta, lugarNacimiento, nombre, tipoSangre, sexo, altura, peso);
-        this.color = color;
-    }
-
     public String getColor() {
         return color;
     }

@@ -12,11 +12,6 @@ public class Gorila extends Primate {
         this.IQ = IQ;
     }
 
-    public Gorila(int IQ, Medio_Transporte mt, int comida, int comidaPorKM, String planeta, String lugarNacimiento, String nombre, String tipoSangre, char sexo, double altura, double peso) {
-        super(mt, comida, comidaPorKM, planeta, lugarNacimiento, nombre, tipoSangre, sexo, altura, peso);
-        this.IQ = IQ;
-    }
-
     public int getIQ() {
         return IQ;
     }
