@@ -80,8 +80,21 @@ public class Aero_Espacial extends Medio_Transporte {
     }
 
     public int viaje(int KmaViajar) {
+        try {
+
+            validar(KmaViajar);
+        } catch (miException e) {
+            System.out.println(e.getMessage());
+        }
         int viaje = (KmaViajar / this.distancia) * 100;
         int total = this.combustible - viaje;
         return total;
+    }
+
+    public void validar(int x) throws miException {
+        if (x > this.distancia) {
+            throw new miException("No se puede realizar el viaje");
+        }
+
     }
 }
