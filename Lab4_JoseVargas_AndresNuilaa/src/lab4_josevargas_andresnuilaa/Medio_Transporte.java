@@ -2,7 +2,7 @@ package lab4_josevargas_andresnuilaa;
 
 import java.util.ArrayList;
 
-public class Medio_Transporte {
+public abstract class Medio_Transporte {
     protected int combustible;
     protected int distancia;
     protected double altitud;
@@ -54,5 +54,7 @@ public class Medio_Transporte {
     public String toString() {
         return "Medio Transporte\n" + "combustible=" + combustible + ", distancia maxima=" + distancia + ", altitud=" + altitud +", primates asigandos: " + primates;
     }
+    
+    public abstract int viaje (int km);
     
 }

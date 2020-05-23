@@ -94,5 +94,5 @@ public class Primate extends Ser_Vivo {
     public String toString() {
         return "Primate\n" + super.toString() + ", comida=" + comida + ", comidaPorKM=" + comidaPorKM + ", planeta=" + planeta + ", lugarNacimiento=" + lugarNacimiento + '}';
     }
-
+    
 }
