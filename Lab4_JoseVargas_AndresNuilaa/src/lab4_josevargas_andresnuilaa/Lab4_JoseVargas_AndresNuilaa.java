@@ -268,34 +268,14 @@ public class Lab4_JoseVargas_AndresNuilaa {
                                 System.out.println("El primate fue eliminado con exito");
                                 break;
                             case 4:
-                                System.out.println("1]Listar Monos\n"
-                                        + "2]Listar Gorilas\n"
-                                        + "Listar Todos los Primates\n"
-                                        + "Ingrese una opcion: ");
-                                int opt = sc.nextInt();
-                                if (opt == 1) {
-                                    System.out.println("Lista de Monos: ");
-                                    for (Primate p : primates) {
-                                        if (p instanceof Mono) {
-                                            System.out.println("[" + primates.indexOf(p) + "] " + p);
-                                        }
-                                    }
-                                } else if (opt == 2) {
-                                    System.out.println("Lista de Gorilas: ");
-                                    for (Primate p : primates) {
-                                        if (p instanceof Gorila) {
-                                            System.out.println("[" + primates.indexOf(p) + "] " + p);
-                                        }
-                                    }
-                                } else {
-                                    System.out.println("Lista de todos los Primates: ");
+                                System.out.println("Lista de todos los Primates: ");
                                     for (Primate p : primates) {
                                         System.out.println("[" + primates.indexOf(p) + "] " + p);
                                     }
                                 }
                                 break;
                         }
-                    }
+                    
                     System.out.println();
                     break;
                 case 4:
@@ -655,7 +635,20 @@ public class Lab4_JoseVargas_AndresNuilaa {
                     if (inge == false) {
                         System.out.println("Se debe ingresar sesion como Ingeniero para tener acceso");
                     } else {
-
+                        System.out.println("Lista de todos los Medios de Transporte: ");
+                        for (Medio_Transporte p : medios_transporte) {
+                            System.out.println("[" + medios_transporte.indexOf(p) + "] " + p);
+                        }
+                        System.out.println("Ingrese la nave con la cual quiere viajar: ");
+                        int nave = sc.nextInt();
+                        if(medios_transporte.get(nave).getPrimates().size() > 0){
+                            System.out.println("Ingrese los km a recorrer por la nave: ");
+                            int km = sc.nextInt();
+                            medios_transporte.get(nave).viaje(km);
+                            System.out.println("El viaje se hizo con exito");
+                        }else{
+                            System.out.println("El transporte debe contener al menos a un primate");
+                        }
                     }
                     System.out.println();
                     break;
